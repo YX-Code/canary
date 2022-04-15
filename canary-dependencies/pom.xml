@@ -6,14 +6,13 @@
 
     <groupId>cn.canary</groupId>
     <artifactId>canary-dependencies</artifactId>
-    <version>${revision}</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <revision>1.0-SNAPSHOT</revision>
         <!-- 统一依赖管理 -->
         <spring.boot.version>2.6.3</spring.boot.version>
         <!-- Web 相关 -->
@@ -46,7 +45,7 @@
         <!-- 工具类相关 -->
         <lombok.version>1.18.20</lombok.version>
         <mapstruct.version>1.4.1.Final</mapstruct.version>
-        <hutool.version>5.7.22</hutool.version>
+        <hutool.version>5.8.0.M2</hutool.version>
         <easyexcel.verion>2.2.7</easyexcel.verion>
         <velocity.version>2.2</velocity.version>
         <screw.version>1.0.5</screw.version>
@@ -61,6 +60,7 @@
         <aliyun-java-sdk-dysmsapi.version>2.1.0</aliyun-java-sdk-dysmsapi.version>
         <yunpian-java-sdk.version>1.2.7</yunpian-java-sdk.version>
         <justauth.version>1.4.0</justauth.version>
+        <logback-version>1.2.11</logback-version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -83,8 +83,16 @@
                 <artifactId>canary-core</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
-         
-
+            <dependency>
+                <groupId>cn.eagle</groupId>
+                <artifactId>eagle-utils-all-in-one</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.eagle</groupId>
+                <artifactId>eagle-json-all-in-one</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
             <!-- Spring 核心 -->
             <dependency>
                 <!-- 用于生成自定义的 Spring @ConfigurationProperties 配置类的说明文件 -->
@@ -135,9 +143,10 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
+            <!-- 多数据源 -->
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>dynamic-datasource-spring-boot-starter</artifactId> <!-- 多数据源 -->
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId> 
                 <version>${dynamic-datasource.version}</version>
             </dependency>
 
@@ -209,15 +218,16 @@
                 <artifactId>opentracing-noop</artifactId>
                 <version>${opentracing.version}</version>
             </dependency>
-
+            <!-- 实现 Spring Boot Admin Server 服务端 -->
             <dependency>
                 <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-server</artifactId> <!-- 实现 Spring Boot Admin Server 服务端 -->
+                <artifactId>spring-boot-admin-starter-server</artifactId> 
                 <version>${spring-boot-admin.version}</version>
             </dependency>
+            <!-- 实现 Spring Boot Admin Server 服务端 -->
             <dependency>
                 <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-client</artifactId> <!-- 实现 Spring Boot Admin Server 服务端 -->
+                <artifactId>spring-boot-admin-starter-client</artifactId> 
                 <version>${spring-boot-admin.version}</version>
             </dependency>
 
@@ -268,7 +278,7 @@
                     </exclusion>
                     <exclusion>
                         <groupId>de.odysseus.juel</groupId>
-                        <artifactId>juel-spi</artifactId>
+                        <artifactId>juel-impl</artifactId>
                     </exclusion>
                     <exclusion>
                         <groupId>org.mybatis</groupId>
@@ -324,7 +334,16 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-core</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-log</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>easyexcel</artifactId>
@@ -354,7 +373,7 @@
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
             </dependency>
-
+            <!-- 谷歌开源的依赖注入框架 -->
             <dependency>
                 <groupId>com.google.inject</groupId>
                 <artifactId>guice</artifactId>
@@ -417,7 +436,22 @@
                 <artifactId>justauth-spring-boot-starter</artifactId> <!-- 社交登陆（例如说，个人微信、企业微信等等） -->
                 <version>${justauth.version}</version>
             </dependency>
-
+            <!-- 后续添加 -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-access</artifactId>
+                <version>${logback-version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <distributionManagement>

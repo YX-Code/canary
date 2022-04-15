@@ -6,13 +6,12 @@
 
     <groupId>cn.canary</groupId>
     <artifactId>canary-core</artifactId>
-    <version>${revision}</version>
+    <version>1.0-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <revision>1.0-snapshot</revision>
     </properties>
     <distributionManagement>
         <repository>
