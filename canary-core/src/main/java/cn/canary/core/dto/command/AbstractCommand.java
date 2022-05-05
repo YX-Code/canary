@@ -1,12 +1,15 @@
 package cn.canary.core.dto.command;
 
+
+import cn.canary.core.dto.DTO;
+
 /**
- * Query request from Client.
+ * Command request from Client.
  *
  * @author yaojx
  *
  */
-public abstract class Query extends Command {
+public abstract class AbstractCommand extends DTO {
 
     private static final long serialVersionUID = 1L;
 

@@ -5,7 +5,7 @@ package cn.canary.core.dto.command;
  *
  * @author yaojx
  */
-public abstract class PageQuery extends Query {
+public abstract class AbstractPageQuery extends AbstractQuery {
     private static final long serialVersionUID = 1L;
 
     public static final String ASC = "ASC";
@@ -30,7 +30,7 @@ public abstract class PageQuery extends Query {
         return Math.max(pageIndex, 1);
     }
 
-    public PageQuery setPageIndex(int pageIndex) {
+    public AbstractPageQuery setPageIndex(int pageIndex) {
         this.pageIndex = pageIndex;
         return this;
     }
@@ -42,7 +42,7 @@ public abstract class PageQuery extends Query {
         return pageSize;
     }
 
-    public PageQuery setPageSize(int pageSize) {
+    public AbstractPageQuery setPageSize(int pageSize) {
         if (pageSize < 1) {
             pageSize = DEFAULT_PAGE_SIZE;
         }
@@ -58,7 +58,7 @@ public abstract class PageQuery extends Query {
         return orderBy;
     }
 
-    public PageQuery setOrderBy(String orderBy) {
+    public AbstractPageQuery setOrderBy(String orderBy) {
         this.orderBy = orderBy;
         return this;
     }
@@ -67,7 +67,7 @@ public abstract class PageQuery extends Query {
         return orderDirection;
     }
 
-    public PageQuery setOrderDirection(String orderDirection) {
+    public AbstractPageQuery setOrderDirection(String orderDirection) {
         if (ASC.equalsIgnoreCase(orderDirection) || DESC.equalsIgnoreCase(orderDirection)) {
             this.orderDirection = orderDirection;
         }
