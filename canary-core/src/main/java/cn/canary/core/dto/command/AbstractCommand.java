@@ -1,7 +1,7 @@
 package cn.canary.core.dto.command;
 
 
-import cn.canary.core.dto.DTO;
+import cn.canary.core.dto.AbstractDTO;
 
 /**
  * Command request from Client.
@@ -9,7 +9,7 @@ import cn.canary.core.dto.DTO;
  * @author yaojx
  *
  */
-public abstract class AbstractCommand extends DTO {
+public abstract class AbstractCommand extends AbstractDTO {
 
     private static final long serialVersionUID = 1L;
 

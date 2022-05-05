@@ -1,14 +1,14 @@
 package cn.canary.core.dto.response;
 
 
-import cn.canary.core.dto.DTO;
+import cn.canary.core.dto.AbstractDTO;
 
 /**
  * Response to caller
  *
  * @author yaojx
  */
-public class Response extends DTO {
+public class Response extends AbstractDTO {
     
     private static final long serialVersionUID = 1L;
     

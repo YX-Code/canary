@@ -8,7 +8,7 @@ import java.io.Serializable;
  *
  * @author yaojianxing
  */
-public abstract class Info implements Serializable {
+public abstract class AbstractInfo implements Serializable {
     private static final long serialVersionUID = 5583654013618205373L;
     
     /**
