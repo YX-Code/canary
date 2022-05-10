@@ -9,7 +9,7 @@ import java.io.Serializable;
  *
  * @author yaojx
  */
-public abstract class DTO implements Serializable {
+public abstract class AbstractDTO implements Serializable {
     
     private static final long serialVersionUID = 1L;
     

@@ -7,7 +7,13 @@ package cn.canary.core.enums;
  */
 public enum CommonStatusEnum {
 
+    /**
+     * 开启
+     */
     ENABLE(0, "开启"),
+    /**
+     * 关闭
+     */
     DISABLE(1, "关闭");
     
     CommonStatusEnum(Integer status, String name) {

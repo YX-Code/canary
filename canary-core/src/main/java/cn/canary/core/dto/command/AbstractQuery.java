@@ -6,7 +6,7 @@ package cn.canary.core.dto.command;
  * @author yaojx
  *
  */
-public abstract class Query extends Command {
+public abstract class AbstractQuery extends AbstractCommand {
 
     private static final long serialVersionUID = 1L;
 

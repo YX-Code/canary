@@ -6,7 +6,8 @@ package cn.canary.core.exception.code;
  *
  * 全局错误码，占用 [0, 999], 参见 {@link GlobalErrorCodeConstants}
  *
- * TODO 错误码设计成对象的原因，为未来的 i18 国际化做准备
+ * @TODO 错误码设计成对象的原因，为未来的 i18 国际化做准备
+ * @author yaojx
  */
 public class ErrorCode {
 

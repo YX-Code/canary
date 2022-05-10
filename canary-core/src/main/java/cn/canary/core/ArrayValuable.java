@@ -8,6 +8,8 @@ package cn.canary.core;
 public interface ArrayValuable<T> {
 
     /**
+     * 说明对象可转为数组
+     * 
      * @return T类型的数组
      */
     T[] toArray();
