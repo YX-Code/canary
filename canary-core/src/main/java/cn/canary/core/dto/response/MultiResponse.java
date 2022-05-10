@@ -10,17 +10,17 @@ import java.util.List;
  *
  * @author yaojx
  */
-public class MultiResponse<T> extends Response {
+public class MultiResponse extends Response {
     
     private static final long serialVersionUID = 1L;
     
-    private Collection<T> result;
+    private Collection<?> result;
     
-    public List<T> getResult() {
+    public List<Object> getResult() {
         return null == result ? Collections.emptyList() : new ArrayList<>(result);
     }
     
-    public void setData(Collection<T> result) {
+    public void setData(Collection<?> result) {
         this.result = result;
     }
     
@@ -32,22 +32,22 @@ public class MultiResponse<T> extends Response {
         return !isEmpty();
     }
     
-    public static MultiResponse<Object> buildSuccess() {
-        MultiResponse<Object> response = new MultiResponse<>();
+    public static MultiResponse buildSuccess() {
+        MultiResponse response = new MultiResponse();
         response.setSuccess(true);
         return response;
     }
     
-    public static MultiResponse<Object> buildFailure(String errCode, String errMessage) {
-        MultiResponse<Object> response = new MultiResponse<>();
+    public static MultiResponse buildFailure(String code, String errMessage) {
+        MultiResponse response = new MultiResponse();
         response.setSuccess(false);
-        response.setErrCode(errCode);
+        response.setCode(code);
         response.setErrMessage(errMessage);
         return response;
     }
     
-    public static <T> MultiResponse<T> of(Collection<T> result) {
-        MultiResponse<T> response = new MultiResponse<>();
+    public static MultiResponse of(Collection<Object> result) {
+        MultiResponse response = new MultiResponse();
         response.setSuccess(true);
         response.setData(result);
         return response;

@@ -14,7 +14,7 @@ public class Response extends DTO {
     
     private boolean success;
     
-    private String errCode;
+    private String code;
     
     private String errMessage;
     
@@ -26,12 +26,12 @@ public class Response extends DTO {
         this.success = success;
     }
     
-    public String getErrCode() {
-        return errCode;
+    public String getCode() {
+        return code;
     }
     
-    public void setErrCode(String errCode) {
-        this.errCode = errCode;
+    public void setCode(String code) {
+        this.code = code;
     }
     
     public String getErrMessage() {
@@ -44,7 +44,7 @@ public class Response extends DTO {
     
     @Override
     public String toString() {
-        return "Response [success=" + success + ", errCode=" + errCode + ", errMessage=" + errMessage + "]";
+        return "Response [success=" + success + ", code=" + code + ", errMessage=" + errMessage + "]";
     }
     
     public static Response buildSuccess() {
@@ -53,10 +53,10 @@ public class Response extends DTO {
         return response;
     }
     
-    public static Response buildFailure(String errCode, String errMessage) {
+    public static Response buildFailure(String code, String errMessage) {
         Response response = new Response();
         response.setSuccess(false);
-        response.setErrCode(errCode);
+        response.setCode(code);
         response.setErrMessage(errMessage);
         return response;
     }

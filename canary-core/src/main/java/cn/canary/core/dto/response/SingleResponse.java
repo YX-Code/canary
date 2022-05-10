@@ -6,36 +6,36 @@ package cn.canary.core.dto.response;
  *
  * @author yaojx
  */
-public class SingleResponse<T> extends Response {
+public class SingleResponse extends Response {
     
     private static final long serialVersionUID = 1L;
     
-    private T result;
+    private Object result;
     
-    public T getResult() {
+    public Object getResult() {
         return result;
     }
     
-    public void setResult(T result) {
+    public void setResult(Object result) {
         this.result = result;
     }
     
-    public static SingleResponse<Object> buildSuccess() {
-        SingleResponse<Object> response = new SingleResponse<>();
+    public static SingleResponse buildSuccess() {
+        SingleResponse response = new SingleResponse();
         response.setSuccess(true);
         return response;
     }
     
-    public static SingleResponse<Object> buildFailure(String errCode, String errMessage) {
-        SingleResponse<Object> response = new SingleResponse<>();
+    public static SingleResponse buildFailure(String code, String errMessage) {
+        SingleResponse response = new SingleResponse();
         response.setSuccess(false);
-        response.setErrCode(errCode);
+        response.setCode(code);
         response.setErrMessage(errMessage);
         return response;
     }
     
-    public static <T> SingleResponse<T> of(T result) {
-        SingleResponse<T> response = new SingleResponse<>();
+    public static SingleResponse of(Object result) {
+        SingleResponse response = new SingleResponse();
         response.setSuccess(true);
         response.setResult(result);
         return response;

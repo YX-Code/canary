@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author yaojx
  */
-public class PageResponse<T> extends Response {
+public class PageResponse extends Response {
     
     private static final long serialVersionUID = 1L;
     
@@ -22,7 +22,7 @@ public class PageResponse<T> extends Response {
     
     private int pageIndex = 1;
     
-    private Collection<T> result;
+    private Collection<Object> result;
     
     public int getTotalCount() {
         return totalCount;
@@ -48,11 +48,11 @@ public class PageResponse<T> extends Response {
         this.pageIndex = Math.max(pageIndex, 1);
     }
     
-    public List<T> getResult() {
-        return null == result ? Collections.emptyList() : new ArrayList<>(result);
+    public List<Object> getResult() {
+        return null == result ? Collections.emptyList() : new ArrayList<Object>(result);
     }
     
-    public void setData(Collection<T> result) {
+    public void setData(Collection<Object> result) {
         this.result = result;
     }
     
@@ -69,22 +69,22 @@ public class PageResponse<T> extends Response {
         return !isEmpty();
     }
     
-    public static PageResponse<Object> buildSuccess() {
-        PageResponse<Object> response = new PageResponse<>();
+    public static PageResponse buildSuccess() {
+        PageResponse response = new PageResponse();
         response.setSuccess(true);
         return response;
     }
     
-    public static PageResponse<Object> buildFailure(String errCode, String errMessage) {
-        PageResponse<Object> response = new PageResponse<>();
+    public static PageResponse buildFailure(String code, String errMessage) {
+        PageResponse response = new PageResponse();
         response.setSuccess(false);
-        response.setErrCode(errCode);
+        response.setCode(code);
         response.setErrMessage(errMessage);
         return response;
     }
     
-    public static <T> PageResponse<T> of(int pageSize, int pageIndex) {
-        PageResponse<T> response = new PageResponse<>();
+    public static PageResponse of(int pageSize, int pageIndex) {
+        PageResponse response = new PageResponse();
         response.setSuccess(true);
         response.setData(Collections.emptyList());
         response.setTotalCount(0);
@@ -93,8 +93,8 @@ public class PageResponse<T> extends Response {
         return response;
     }
     
-    public static <T> PageResponse<T> of(Collection<T> result, int totalCount, int pageSize, int pageIndex) {
-        PageResponse<T> response = new PageResponse<>();
+    public static PageResponse of(Collection<Object> result, int totalCount, int pageSize, int pageIndex) {
+        PageResponse response = new PageResponse();
         response.setSuccess(true);
         response.setData(result);
         response.setTotalCount(totalCount);
